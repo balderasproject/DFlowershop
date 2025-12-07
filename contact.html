@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFlowershop - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#38761D',
+                        'secondary-pink': '#FEE8E9',
+                        'accent-red': '#E96677',
+                        'neutral-light': '#FAF5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    </style>
+</head>
+<body class="bg-neutral-light font-sans text-primary-green min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-display font-bold text-accent-red">
+                DFlowershop
+            </a>
+            
+            <nav id="desk-nav" class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="homepage.html" class="hover:text-accent-red transition duration-150">Home</a>
+                <a href="about.html" class="hover:text-accent-red transition duration-150">About Us</a>
+                <a href="login.html" class="hover:text-accent-red transition duration-150">Login/Register</a>
+                <a href="contact.html" class="hover:text-accent-red transition duration-150 text-accent-red">Contact</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="homepage.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Home</a>
+            <a href="about.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">About Us</a>
+            <a href="login.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Login/Register</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="contact-content" class="bg-secondary-pink/70 py-20 sm:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="font-display text-5xl font-extrabold text-center text-accent-red mb-16">
+                    Get In Touch
+                </h1>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-xl">
+                    <div>
+                        <h2 class="text-3xl font-display font-semibold mb-6 text-primary-green">
+                            Our Details
+                        </h2>
+                        <ul class="space-y-6 text-lg text-gray-700">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 text-accent-red flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13V11"></path></svg>
+                                <div>
+                                    <span class="font-semibold text-primary-green">Email:</span>
+                                    <a href="mailto:dflowershop@.com" class="block hover:text-accent-red">dflowershop@.com</a>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 text-accent-red flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                <div>
+                                    <span class="font-semibold text-primary-green">Phone:</span>
+                                    <a href="tel:5551234567" class="block hover:text-accent-red">(555) 123-4567</a>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 text-accent-red flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <div>
+                                    <span class="font-semibold text-primary-green">Address:</span>
+                                    <p class="block">123 Bloom St, Floristville, 1000 Metro Manila</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 bg-neutral-light rounded-lg">
+                        <h2 class="text-3xl font-display font-semibold mb-6 text-accent-red">
+                            Send Us a Message
+                        </h2>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-primary-green">Your Name</label>
+                                <input type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-accent-red focus:border-accent-red">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-primary-green">Email Address</label>
+                                <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-accent-red focus:border-accent-red">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-primary-green">Message</label>
+                                <textarea id="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-accent-red focus:border-accent-red"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-accent-red hover:bg-accent-red/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-red transition duration-150">
+                                    Submit Inquiry
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary-green text-neutral-light mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-accent-red">DFlowershop</h4>
+                    <p class="text-sm opacity-80">Bringing joy and natural beauty into your life, one stem at a time.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Shop</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#shop" class="hover:text-accent-red transition duration-150">Anniversary</a></li>
+                        <li><a href="index.html#shop" class="hover:text-accent-red transition duration-150">Sympathy</a></li>
+                        <li><a href="index.html#shop" class="hover:text-accent-red transition duration-150">Plants & Gifts</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Help</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="contact.html" class="hover:text-accent-red transition duration-150">FAQs</a></li>
+                        <li><a href="about.html" class="hover:text-accent-red transition duration-150">Delivery Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-accent-red transition duration-150">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Contact</h4>
+                    <p class="text-sm">Email: <a href="mailto:dflowershop@.com" class="hover:text-accent-red">dflowershop@.com</a></p>
+                    <p class="text-sm mt-1">Phone: (555) 123-4567</p>
+                    <p class="text-sm mt-1">Address: 123 Bloom St, Floristville</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-primary-green/50 text-center text-sm opacity-70">
+                &copy; 2025 DFlowershop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+            const contactForm = document.getElementById('contactForm');
+
+            // 1. Mobile Menu Toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 2. Hide mobile menu after a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 3. Contact Form Submission Handler
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); 
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (name === "" || email === "" || message === "") {
+                    alert('Please fill out all fields.');
+                } else {
+                    alert(`Thank you, ${name}! Your message has been sent. We will reply to ${email} shortly.`);
+                    contactForm.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFlowershop - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <script>
+        // Inline Tailwind config remains here for custom colors/fonts
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#38761D',
+                        'secondary-pink': '#FEE8E9',
+                        'accent-red': '#E96677',
+                        'neutral-light': '#FAF5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-light font-sans text-primary-green min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"><a href="" class="text-3xl font-display font-bold text-accent-red">
+                DFlowershop
+            </a>
+            
+            
+            <nav id="desk-nav" class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="shop.html" class="hover:text-accent-red transition duration-150">Shop</a>
+                <a href="about.html" class="hover:text-accent-red transition duration-150">About Us</a>
+                <a href="login.html" class="hover:text-accent-red transition duration-150">Login</a>
+                <a href="contact.html" class="hover:text-accent-red transition duration-150">Contact</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="shop.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Shop</a>
+            <a href="about.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">About Us</a>
+            <a href="login.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Login</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="hero" class="relative bg-secondary-pink/70 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 text-accent-red">
+                        Fresh Blooms,<br>Delivered Daily.
+                    </h1>
+                    <p class="text-xl sm:text-2xl mb-8 text-primary-green/80">
+                        Fresh Flower bouquets for every occasion, sourced from local farms and delivered with love.
+                    </p>
+                    <a href="#shop" class="inline-block px-10 py-4 text-xl font-semibold bg-accent-red text-white rounded-full shadow-lg hover:bg-accent-red/90 transition duration-300 transform hover:scale-105">
+                        Shop Now!
+                    </a>
+                </div>
+
+                <div class="md:w-5/12">
+                    <img 
+                        src="flowers.png" 
+                        alt="A beautiful, freshly arranged flower bouquet"
+                        class="w-full h-auto rounded-xl shadow-soft object-cover border-4 border-white"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/E96677/FAF5F5?text=Beautiful+Floral+Arrangement';"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <section id="shop" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center font-display text-4xl sm:text-5xl font-bold mb-12 text-accent-red">
+                    Our Seasonal Favorites
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 lg:gap-12">
+                    <div class="flower-card bg-white p-6 rounded-xl shadow-soft border border-gray-100">
+                        <img src="peonix.png" alt="Pink Tulips in bouquet" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E96677/FAF5F5?text=Bouquet+1';">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary-green">The Spring Morning</h3>
+                        <p class="text-gray-600 mb-4">A delicate mix of peonies and light roses, perfect for birthdays.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-accent-red">₱1,500</span>
+                            <button class="add-to-cart-btn bg-primary-green text-white px-4 py-2 rounded-full text-sm hover:bg-primary-green/80 transition duration-150">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="flower-card bg-white p-6 rounded-xl shadow-soft border border-gray-100">
+                        <img src="roses.png" alt="Classic red rose bouquet" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E96677/FAF5F5?text=Bouquet+2';">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary-green">The Classic Dozen</h3>
+                        <p class="text-gray-600 mb-4">Timeless red roses for expressing deep love and affection.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-accent-red">₱1,880</span>
+                            <button class="add-to-cart-btn bg-primary-green text-white px-4 py-2 rounded-full text-sm hover:bg-primary-green/80 transition duration-150">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="flower-card bg-white p-6 rounded-xl shadow-soft border border-gray-100">
+                        <img src="assortedtulips.png" alt="Assorted Tulips" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E96677/FAF5F5?text=Bouquet+3';">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary-green">Assorted Tulips</h3>
+                        <p class="text-gray-600 mb-4">A cheerful blend of colored tulips to brighten any room.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-accent-red">₱1,580</span>
+                            <button class="add-to-cart-btn bg-primary-green text-white px-4 py-2 rounded-full text-sm hover:bg-primary-green/80 transition duration-150">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="flower-card bg-white p-6 rounded-xl shadow-soft border border-gray-100">
+                        <img src="sunflower.png" alt="Bright Sunflower Arrangement" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E96677/FAF5F5?text=Bouquet+4';">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary-green">The Golden Ray</h3>
+                        <p class="text-gray-600 mb-4">A vibrant bouquet of sunflowers, symbolizing adoration and longevity.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-accent-red">₱1,350</span>
+                            <button class="add-to-cart-btn bg-primary-green text-white px-4 py-2 rounded-full text-sm hover:bg-primary-green/80 transition duration-150">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flower-card bg-white p-6 rounded-xl shadow-soft border border-gray-100">
+                        <img src="lily.png" alt="White Lily Bouquet" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E96677/FAF5F5?text=Bouquet+5';">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary-green">Purity and Grace</h3>
+                        <p class="text-gray-600 mb-4">Elegant white lilies, often chosen for sympathy or grand gestures.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-accent-red">₱2,100</span>
+                            <button class="add-to-cart-btn bg-primary-green text-white px-4 py-2 rounded-full text-sm hover:bg-primary-green/80 transition duration-150">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="flower-card bg-white p-6 rounded-xl shadow-soft border border-gray-100">
+                        <img src="ceramic.png" alt="Modern Succulent Planter" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='https://placehold.co/400x300/E96677/FAF5F5?text=Planter+6';">
+                        <h3 class="text-2xl font-semibold mb-2 text-primary-green">A plant in a ceramic pot</h3>
+                        <p class="text-gray-600 mb-4">A low-maintenance mix of succulents in a stylish ceramic pot.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-accent-red">₱950</span>
+                            <button class="add-to-cart-btn bg-primary-green text-white px-4 py-2 rounded-full text-sm hover:bg-primary-green/80 transition duration-150">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary-green text-neutral-light mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-accent-red">DFlowershop</h4>
+                    <p class="text-sm opacity-80">Bringing joy and natural beauty into your life, one stem at a time.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Shop</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#shop" class="hover:text-accent-red transition duration-150">Anniversary</a></li>
+                        <li><a href="index.html#shop" class="hover:text-accent-red transition duration-150">Sympathy</a></li>
+                        <li><a href="index.html#shop" class="hover:text-accent-red transition duration-150">Plants & Gifts</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Contact</h4>
+                    <p class="text-sm">Email: <a href="mailto:dflowershop@.com" class="hover:text-accent-red">dflowershop@.com</a></p>
+                    <p class="text-sm mt-1">Phone: (555) 123-4567</p>
+                    <p class="text-sm mt-1">Address: 123 Bloom St, Floristville</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-primary-green/50 text-center text-sm opacity-70">
+                &copy; 2025 DFlowershop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
