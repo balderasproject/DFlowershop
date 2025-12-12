@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFlowershop - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#38761D',
+                        'secondary-pink': '#FEE8E9',
+                        'accent-red': '#E96677',
+                        'neutral-light': '#FAF5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    </style>
+</head>
+<body class="bg-neutral-light font-sans text-primary-green min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="home.html" class="text-3xl font-display font-bold text-accent-red">
+                DFlowershop
+            </a>
+            
+            <nav id="desk-nav" class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="home.html" class="hover:text-accent-red transition duration-150">Home</a>
+                <a href="about.html" class="hover:text-accent-red transition duration-150 text-accent-red">About Us</a>
+                <a href="contact.html" class="hover:text-accent-red transition duration-150">Contact</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="home.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Home</a>
+            <a href="about.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">About Us</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary-green hover:bg-secondary-pink mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="about-us" class="bg-white py-20 sm:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="font-display text-5xl font-extrabold text-accent-red mb-4">
+                        Our Story & Values
+                    </h1>
+                    <p class="text-xl text-primary-green/70">
+                        Rooted in passion, grown with care, delivered with love.
+                    </p>
+                </div>
+                
+                <div class="md:grid md:grid-cols-2 md:gap-16 items-center">
+                    <div class="mb-8 md:mb-0">
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            DFlowershop started with a simple idea: that everyone deserves access to fresh, beautiful, and sustainable flowers. We work directly with local growers to cut out the middlemen, ensuring you receive the freshest blooms possible while supporting responsible farming practices.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Our team of **expert florists** curates unique designs, blending classic elegance with modern flair. We believe flowers aren't just a gift; they're an experience, a mood, and a message.
+                        </p>
+                    </div>
+                    <div>
+                        <img 
+                            src="colorful.png" 
+                            alt="Florists arranging flowers"
+                            class="w-full h-auto rounded-xl shadow-xl object-cover border-4 border-secondary-pink"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/38761D/FAF5F5?text=Our+Team';"
+                        >
+                    </div>
+                </div>
+
+                <div class="mt-20">
+                    <h2 class="text-center font-display text-4xl font-bold mb-12 text-primary-green">
+                        Why Choose Us?
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        
+                        <div class="p-6 rounded-lg bg-secondary-pink/50 border border-secondary-pink">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-accent-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M4.93 6.93l-.707-.707M12 10l.463 9H11.537L12 10zm-6.364 5.636l.707-.707M17.778 15.394l.707.707m-4.242 0H8.424m.707-4.242H14.88"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2">Farm-Fresh Quality</h3>
+                            <p class="text-gray-700">Sourced directly from sustainable, local farms for maximum freshness and vase life.</p>
+                        </div>
+
+                        <div class="p-6 rounded-lg bg-secondary-pink/50 border border-secondary-pink">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-accent-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 10a2 2 0 002 2h14a2 2 0 002-2L18 7m-3 10h3m-3 0a7 7 0 11-14 0h14zM10 7L6 3m4 4h4m-4 0v4m-4 0h4m-4 0v4"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2">Curated Designs</h3>
+                            <p class="text-gray-700">Unique and stylish arrangements crafted by our expert florists.</p>
+                        </div>
+
+                        <div class="p-6 rounded-lg bg-secondary-pink/50 border border-secondary-pink">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-accent-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4M17 3h4M19 6h-4M17 19h4M19 17h-4m-6-13a4 4 0 110 8c-2.43 0-3.89 0-5-1l-2 2"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2">Sustainable Practices</h3>
+                            <p class="text-gray-700">We use compostable wrapping and minimize waste in every step of our process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="bg-primary-green text-neutral-light mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-accent-red">DFlowershop</h4>
+                    <p class="text-sm opacity-80">Bringing joy and natural beauty into your life, one stem at a time.</p>
+                </div>
+                
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Contact</h4>
+                    <p class="text-sm">Email: <a href="mailto:dflowershop@.com" class="hover:text-accent-red">dflowershop@.com</a></p>
+                    <p class="text-sm mt-1">Phone: (555) 123-4567</p>
+                    <p class="text-sm mt-1">Address: 123 Bloom St, Floristville</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-primary-green/50 text-center text-sm opacity-70">
+                &copy; 2025 DFlowershop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+            // 1. Mobile Menu Toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 2. Hide mobile menu after a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
