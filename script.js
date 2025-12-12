@@ -16,6 +16,9 @@ const body = document.body;
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 
+// NEW: Get the 'Proceed to Checkout' button for the purchase logic
+const checkoutButton = document.querySelector('.w-full.py-3.bg-accent-red'); 
+
 
 function formatCurrency(amount) {
     // Format to Philippine Peso (PHP)
@@ -211,6 +214,38 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
     });
 });
 
+
+// ------------------------------------------------------------------
+// --- NEW PURCHASE/CHECKOUT FUNCTIONALITY ---
+// ------------------------------------------------------------------
+
+function simulatePurchase() {
+    // 1. Check if the cart is empty before proceeding
+    if (cart.length === 0) {
+        alert("Your cart is empty. Please add items before checking out.");
+        return;
+    }
+
+    // 2. Simulate the purchase process (e.g., sending data to a server)
+    console.log("Processing purchase for items:", cart);
+    
+    // 3. Clear the cart and update display
+    cart = [];
+    updateCartDisplay(); // This clears the cart in the UI and local storage (via saveCart)
+
+    // 4. Show success message (error message requested by user, but used for success)
+    alert("Successfully Purchased! Your order has been successfully placed at DFlowershop. Thank you for your purchase!");
+
+    // 5. Close the cart overlay
+    toggleCart(); 
+}
+
+// Attach the purchase function to the checkout button
+checkoutButton.addEventListener('click', simulatePurchase);
+
+// ------------------------------------------------------------------
 // --- Initialization ---
+// ------------------------------------------------------------------
+
 // This is called once on page load to check localStorage and populate the cart UI
 updateCartDisplay();
