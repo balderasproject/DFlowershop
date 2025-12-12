@@ -1,6 +1,6 @@
-<?php
+<!-- <?php -->
 session_start();
-include 'db_connect.php'; // make sure this file has your DB connection
+include 'dbconnect.php'; // make sure this file has your DB connection
 
 // Check if user is already logged in
 if (isset($_SESSION['username'])) {
