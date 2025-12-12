@@ -69,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // 3. Redirect after a short delay (e.g., 2 seconds) to allow user to read the message
             setTimeout(() => {
                 // The redirection to homepage.html
-                window.location.href = "homepage.html"; 
+                window.location.href = "home.html"; 
             }, 2000); // 2000 milliseconds = 2 seconds
         }
     });
 });
-// End of file

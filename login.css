@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+        /* LOGIN FORM STYLES - Kept separate from the main Tailwind structure for the unique glass look */
+        #login-section {
+            background: linear-gradient(135deg, #FEE8E9 0%, #38761D1A 100%);
+            min-height: 70vh; /* Increased height to fill the page content area */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .glass-container {
+            position: relative;
+            width: 380px;
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            overflow: hidden;
+        }
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            transform: skewX(15deg);
+            pointer-events: none;
+            transition: left 0.8s ease-in-out;
+        }
+        .glass-container:hover::before {
+            left: 120%;
+        }
+        .glass-container h2 {
+            color: #38761D;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border: none;
+            outline: none;
+            border-radius: 35px;
+            font-size: 16px;
+            color: #38761D;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: #38761D;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: 0;
+            left: 15px;
+            font-size: 12px;
+            background: #E96677;
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: white;
+            z-index: 11;
+        }
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #38761D;
+        }
+        .remember-forgot input {
+            margin-right: 8px;
+            accent-color: #E96677;
+        }
+        .remember-forgot a {
+            color: #E96677;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #E96677;
+            border: none;
+            outline: none;
+            border-radius: 35px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(233, 102, 119, 0.3);
+        }
+        .login-btn:hover {
+            background: #E96677;
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(233, 102, 119, 0.4);
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #38761D;
+            font-size: 14px;
+        }
+        .register-link a {
+            color: #E96677;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
