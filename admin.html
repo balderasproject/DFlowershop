@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFlowershop - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#38761D',
+                        'secondary-pink': '#FEE8E9',
+                        'accent-red': '#E96677',
+                        'neutral-light': '#FAF5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-light font-sans text-gray-800 min-h-screen">
+
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-primary-green text-white hidden md:block">
+            <div class="p-6">
+                <h1 class="text-2xl font-display font-bold text-secondary-pink">Admin Panel</h1>
+            </div>
+            <nav class="mt-6">
+                <a href="#" onclick="showSection('orders')" class="block py-3 px-6 hover:bg-white/10 transition">Sales & Orders</a>
+                <a href="#" onclick="showSection('inquiries')" class="block py-3 px-6 hover:bg-white/10 transition">Special Inquiries</a>
+                <a href="home.html" class="block py-3 px-6 mt-10 text-accent-red font-bold">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto p-8">
+            <header class="flex justify-between items-center mb-8">
+                <h2 id="section-title" class="text-3xl font-display font-bold text-primary-green">Sales Dashboard</h2>
+                <div class="text-sm text-gray-500">Welcome, Store Manager</div>
+            </header>
+
+            <section id="orders-section">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-secondary-pink/50">
+                            <tr>
+                                <th class="p-4 font-semibold text-primary-green">Customer</th>
+                                <th class="p-4 font-semibold text-primary-green">Item Purchased</th>
+                                <th class="p-4 font-semibold text-primary-green">Date</th>
+                                <th class="p-4 font-semibold text-primary-green">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-list">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="inquiries-section" class="hidden">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-secondary-pink/50">
+                            <tr>
+                                <th class="p-4 font-semibold text-primary-green">Inquirer</th>
+                                <th class="p-4 font-semibold text-primary-green">Occasion</th>
+                                <th class="p-4 font-semibold text-primary-green">Message</th>
+                                <th class="p-4 font-semibold text-primary-green">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiries-list">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Section Switching Logic
+        function showSection(section) {
+            const orders = document.getElementById('orders-section');
+            const inquiries = document.getElementById('inquiries-section');
+            const title = document.getElementById('section-title');
+
+            if (section === 'orders') {
+                orders.classList.remove('hidden');
+                inquiries.classList.add('hidden');
+                title.innerText = "Sales Dashboard";
+            } else {
+                orders.classList.add('hidden');
+                inquiries.classList.remove('hidden');
+                title.innerText = "Special Occasion Inquiries";
+            }
+        }
+
+        // Logic to Fetch Data from LocalStorage
+        function loadAdminData() {
+            // Mock data if localStorage is empty
+            const mockOrders = [
+                { customer: "Maria Clara", item: "Red Roses Bouquet", date: "2026-03-08", status: "Delivered" },
+                { customer: "Juan Dela Cruz", item: "Sunflower Basket", date: "2026-03-09", status: "Pending" }
+            ];
+
+            const mockInquiries = [
+                { name: "Ana Santos", occasion: "Wedding", message: "Looking for pastel-themed centerpieces for 50 tables." }
+            ];
+
+            // 1. Render Orders
+            const ordersList = document.getElementById('orders-list');
+            const storedOrders = JSON.parse(localStorage.getItem('dflowershop_orders')) || mockOrders;
+            
+            ordersList.innerHTML = storedOrders.map(order => `
+                <tr class="border-t border-gray-50 hover:bg-gray-50 transition">
+                    <td class="p-4">${order.customer}</td>
+                    <td class="p-4 font-medium">${order.item}</td>
+                    <td class="p-4 text-sm text-gray-500">${order.date}</td>
+                    <td class="p-4"><span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs">${order.status}</span></td>
+                </tr>
+            `).join('');
+
+            // 2. Render Inquiries
+            const inquiriesList = document.getElementById('inquiries-list');
+            const storedInquiries = JSON.parse(localStorage.getItem('dflowershop_inquiries')) || mockInquiries;
+
+            inquiriesList.innerHTML = storedInquiries.map((inq, index) => `
+                <tr class="border-t border-gray-50 hover:bg-gray-50 transition">
+                    <td class="p-4">${inq.name}</td>
+                    <td class="p-4 font-medium">${inq.occasion}</td>
+                    <td class="p-4 text-sm text-gray-600">${inq.message}</td>
+                    <td class="p-4">
+                        <button class="text-accent-red font-semibold hover:underline" onclick="deleteInquiry(${index})">Resolve</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteInquiry(index) {
+            // Placeholder for deleting/resolving logic
+            alert("Inquiry marked as resolved.");
+        }
+
+        window.onload = loadAdminData;
+    </script>
+</body>
+</html>

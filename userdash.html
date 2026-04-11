@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFlowershop - My Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#38761D',
+                        'secondary-pink': '#FEE8E9',
+                        'accent-red': '#E96677',
+                        'neutral-light': '#FAF5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-light font-sans text-gray-800">
+
+    <nav class="bg-white border-b border-gray-100 px-8 py-4 flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-2xl font-display font-bold text-primary-green">DFlowershop</h1>
+        <div class="flex items-center gap-6 text-sm">
+            <a href="home.html" class="hover:text-primary-green transition">Shop</a>
+            <button onclick="logout()" class="bg-secondary-pink px-4 py-2 rounded-full text-accent-red font-bold hover:bg-red-100 transition">Logout</button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-6 md:p-12">
+        <header class="mb-10">
+            <h2 class="text-4xl font-display font-bold text-primary-green mb-2">Hello, <span id="user-name">Guest</span>!</h2>
+            <p class="text-gray-500">Welcome back to your floral sanctuary.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-pink-100">
+                    <h3 class="font-bold text-lg mb-4 text-primary-green border-b pb-2">Account Details</h3>
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <span class="text-gray-400 block uppercase text-[10px] tracking-widest font-bold">Email</span>
+                            <p id="user-email">Not logged in</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block uppercase text-[10px] tracking-widest font-bold">Delivery Address</span>
+                            <p id="user-address">Manila, Philippines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-accent-red text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="font-bold text-lg">Flower Points</h3>
+                        <p class="text-3xl font-display mt-2" id="user-points">0</p>
+                        <p class="text-xs opacity-90 mt-1 italic">Keep blooming! 🌸</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 space-y-8">
+                
+                <section>
+                    <div class="flex justify-between items-end mb-4">
+                        <h3 class="text-xl font-display font-bold text-primary-green">Your Orders</h3>
+                        <span id="order-count" class="text-xs text-gray-400">0 orders found</span>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <table class="w-full text-left">
+                            <thead class="bg-secondary-pink/30 text-[10px] uppercase text-primary-green tracking-tighter">
+                                <tr>
+                                    <th class="p-4">Item</th>
+                                    <th class="p-4">Date</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4 text-right">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="user-orders-body" class="divide-y divide-gray-50 text-sm">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // --- DATA HANDLER ---
+        function loadUserData() {
+            // 1. Get Logged-in User Info (Fallback to Mock if empty)
+            const currentUser = JSON.parse(localStorage.getItem('dflowershop_active_user')) || {
+                name: "Juan Dela Cruz",
+                email: "juandelacruz@email.com",
+                points: 1250,
+                address: "123 Sampaguita St, Manila"
+            };
+
+            // 2. Update UI text
+            document.getElementById('user-name').innerText = currentUser.name;
+            document.getElementById('user-email').innerText = currentUser.email;
+            document.getElementById('user-address').innerText = currentUser.address;
+            document.getElementById('user-points').innerText = currentUser.points.toLocaleString();
+
+            // 3. Get Orders (Specifically for this user)
+            const allOrders = JSON.parse(localStorage.getItem('dflowershop_orders')) || [
+                { customer: "Maria Clara", item: "Red Roses Bouquet", date: "2026-03-08", status: "Delivered", price: "₱1,200" },
+                { customer: "Maria Clara", item: "Pastel Dreams Mix", date: "2026-03-09", status: "In Transit", price: "₱850" }
+            ];
+
+            // Filter orders to only show those belonging to the logged-in user
+            const userOrders = allOrders.filter(order => order.customer === currentUser.name);
+            const tableBody = document.getElementById('user-orders-body');
+            document.getElementById('order-count').innerText = `${userOrders.length} orders found`;
+
+            if (userOrders.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-gray-400 italic">No orders yet. Time to buy some flowers!</td></tr>`;
+                return;
+            }
+
+            // 4. Render Table Rows
+            tableBody.innerHTML = userOrders.map(order => `
+                <tr class="hover:bg-pink-50/30 transition duration-200">
+                    <td class="p-4 font-semibold">${order.item}</td>
+                    <td class="p-4 text-gray-500 text-xs">${order.date}</td>
+                    <td class="p-4">
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold ${getStatusStyle(order.status)}">
+                            ${order.status.toUpperCase()}
+                        </span>
+                    </td>
+                    <td class="p-4 text-right font-medium text-primary-green">${order.price || '₱0.00'}</td>
+                </tr>
+            `).join('');
+        }
+
+        // --- UI HELPERS ---
+        function getStatusStyle(status) {
+            switch(status.toLowerCase()) {
+                case 'delivered': return 'bg-green-100 text-green-700';
+                case 'pending': return 'bg-yellow-100 text-yellow-700';
+                case 'in transit': return 'bg-blue-100 text-blue-700';
+                case 'cancelled': return 'bg-red-100 text-red-700';
+                default: return 'bg-gray-100 text-gray-600';
+            }
+        }
+
+        function logout() {
+            if(confirm("Are you sure you want to logout?")) {
+                localStorage.removeItem('dflowershop_active_user');
+                window.location.href = "home.html";
+            }
+        }
+
+        // Initialize on load
+        window.onload = loadUserData;
+    </script>
+</body>
+</html>
