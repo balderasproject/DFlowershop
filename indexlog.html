@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DFlowershop - Login</title>
+    <title>DFlowershop - Login / Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
@@ -33,6 +31,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="home.html" class="text-3xl font-display font-bold text-accent-red">DFlowershop</a>
             
+            <nav id="desk-nav" class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="home.html" class="hover:text-accent-red transition duration-150">Home</a>
+                <a href="about.html" class="hover:text-accent-red transition duration-150">About Us</a>
+                <a href="contact.html" class="hover:text-accent-red transition duration-150">Contact</a>
+            </nav>
+
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-red">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
@@ -44,74 +48,65 @@
         </div>
     </header>
 
-    <main class="flex-grow flex items-center justify-center py-16 px-4">
-        <div class="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-            <h2 class="text-center font-display text-4xl font-bold mb-6 text-accent-red">Login</h2>
-            
-            <form id="loginForm" class="space-y-6">
-                <div>
-                    <label for="role" class="block text-sm font-medium text-primary-green mb-1">I am a:</label>
-                    <select id="role" name="role" required 
-                        class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-red focus:border-accent-red text-primary-green bg-white">
-                        <option value="user">Customer</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-
-                <div class="relative">
-                    <label for="username" class="block text-sm font-medium text-primary-green mb-1">Username</label>
-                    <input type="text" id="username" name="username" required 
-                        class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-red focus:border-accent-red text-primary-green placeholder-gray-400"
-                        placeholder="Enter your username">
-                </div>
-
-                <div class="relative">
-                    <label for="password" class="block text-sm font-medium text-primary-green mb-1">Password</label>
-                    <input type="password" id="password" name="password" required 
-                        class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-red focus:border-accent-red text-primary-green placeholder-gray-400"
-                        placeholder="••••••••">
-                </div>
+    <main class="flex-grow">
+        <section id="login-register" class="py-16 sm:py-24" id="login-section"> 
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center h-full">
                 
-                <div class="flex items-center justify-between text-sm">
-                    <label class="flex items-center text-gray-600">
-                        <input type="checkbox" class="rounded text-accent-red focus:ring-accent-red mr-2"> Remember me
-                    </label>
-                    <a href="#" class="text-accent-red hover:underline">Forgot Password?</a>
-                </div>
+                <div class="glass-container">
+                    <h2 class="text-accent-red">Login to DFlowershop</h2>
+                    
+                    <div id="message-container" class="my-4 hidden"></div> 
 
-                <button type="submit" 
-                    class="w-full py-3 px-4 border border-transparent rounded-full shadow-sm text-lg font-semibold text-white bg-accent-red hover:bg-accent-red/90 transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-red">
-                    Sign In
-                </button>
+                    <form id="loginForm" action="#" method="POST"> 
+                        <div class="input-group">
+                            <input type="text" id="username" name="username" required placeholder=" ">
+                            <label for="username">Username</label> 
+                        </div>
 
-                <div class="text-center pt-4">
-                    <p class="text-gray-500">Don't have an account? 
-                        <a href="register.html" class="font-medium text-primary-green hover:text-accent-red transition duration-150">Register</a>
-                    </p>
-                </div>
-            </form>
-        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" required placeholder=" ">
+                            <label for="password">Password</label> 
+                        </div>
+                        
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember me</label>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                        <div class="register-link">
+                            <p>Don't have an account? <a href="register.html" class="font-medium text-accent-red hover:text-primary-green transition duration-150">
+    Register
+</a></p>
+                            
+                        </div>
+                    </form>
+                </div> 
+            </div>
+        </section>
     </main>
 
-
-
-    <script>
-        // Form Logic
-        const loginForm = document.getElementById('loginForm');
-        
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const role = document.getElementById('role').value;
-
-            if (role === 'admin') {
-                // Redirect to Admin Dashboard
-                alert(`Welcome back, Administrator ${username}!`);
-                window.location.href = 'admin_dashboard.html'; 
-            } else {
-                // Redirect to User Home
-                alert(`Welcome back, ${username}!`);
-                window.location.href = 'home.html'; 
-            }
-        });
+    <footer class="bg-primary-green text-neutral-light mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-accent-red">DFlowershop</h4>
+                    <p class="text-sm opacity-80">Bringing joy and natural beauty into your life, one stem at a time.</p>
+                </div>
+                
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Contact</h4>
+                    <p class="text-sm">Email: <a href="mailto:dflowershop@.com" class="hover:text-accent-red">dflowershop@.com</a></p>
+                    <p class="text-sm mt-1">Phone: (555) 123-4567</p>
+                    <p class="text-sm mt-1">Address: 123 Bloom St, Floristville</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-primary-green/50 text-center text-sm opacity-70">
+                &copy; 2025 DFlowershop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
